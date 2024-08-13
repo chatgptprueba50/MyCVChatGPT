@@ -230,8 +230,65 @@
         }
 
         function translateCV() {
-            // Aquí se implementará la función para traducir el CV al inglés.
-        }
+    // Traducción de las secciones principales del CV
+    document.querySelector('header h1').textContent = 'Anderson Martinez Restrepo';
+    document.querySelector('header h2').textContent = 'PHP Web Developer';
+
+    document.querySelector('.section-title').textContent = 'Professional Summary';
+    document.querySelectorAll('section')[1].querySelector('p').textContent = `Software developer with experience in designing, installing, testing, and maintaining software systems. Proficient in various platforms, languages, and embedded systems. Experienced in the latest development tools and procedures. Able to effectively self-manage during independent projects as well as collaborate as part of a productive team.`;
+
+    document.querySelector('.section-title').textContent = 'Work Experience';
+    document.querySelectorAll('.experience-item h4')[0].textContent = 'PHP Developer - BUILT - Tech First';
+    document.querySelectorAll('.experience-item p strong')[0].textContent = 'March 2022 - Present';
+    document.querySelectorAll('.experience-item ul li')[0].textContent = 'Collaborate with testers to correct site errors.';
+    document.querySelectorAll('.experience-item ul li')[1].textContent = 'Optimize new application functionalities.';
+    document.querySelectorAll('.experience-item ul li')[2].textContent = 'Incorporate new technologies and functionalities to optimize applications.';
+    document.querySelectorAll('.experience-item ul li')[3].textContent = 'Work with designers to implement changes and improvements.';
+    document.querySelectorAll('.experience-item ul li')[4].textContent = 'Collaborate with team members in all phases of projects.';
+    document.querySelectorAll('.experience-item p strong')[1].textContent = 'Technologies: PHP, Laravel, YII2, Angularjs, Nodejs, MySQL, SQL, Javascript, Jquery, .NET.';
+
+    document.querySelectorAll('.experience-item h4')[1].textContent = 'Systems Analyst - Incolmotos Yamaha S.A., Girardota';
+    document.querySelectorAll('.experience-item p strong')[2].textContent = 'October 2000 - October 2022';
+    document.querySelectorAll('.experience-item ul li')[5].textContent = 'Implement, customize, and manage the Moodle virtual training application.';
+    document.querySelectorAll('.experience-item ul li')[6].textContent = 'Implement, customize, and manage the Intranet in Joomla.';
+    document.querySelectorAll('.experience-item ul li')[7].textContent = 'Document new projects and implement them according to project specifications.';
+    document.querySelectorAll('.experience-item ul li')[8].textContent = 'Integrate systems to implement management applications for: HR, Production, Documentation, etc.';
+    document.querySelectorAll('.experience-item ul li')[9].textContent = 'Analyze and implement new technologies and development tools that improve and optimize processes.';
+    document.querySelectorAll('.experience-item p strong')[3].textContent = 'Technologies: PHP, MySQL, HTML, CSS, SQL, ASP, JavaScript, Jquery, Ajax.';
+
+    document.querySelectorAll('.experience-item h4')[2].textContent = 'PHP Developer - CTI Consulting, USA';
+    document.querySelectorAll('.experience-item p strong')[4].textContent = 'January 2022 - February 2022';
+    document.querySelectorAll('.experience-item ul li')[10].textContent = 'Correct errors found by QA testers.';
+    document.querySelectorAll('.experience-item ul li')[11].textContent = 'Document development processes.';
+    document.querySelectorAll('.experience-item ul li')[12].textContent = 'Study new technologies to make modifications and adjustments to applications.';
+    document.querySelectorAll('.experience-item p strong')[5].textContent = 'Technologies: PHP, MySQL, CakePHP, HTML, CSS, JavaScript, Jquery.';
+
+    document.querySelectorAll('.section-title')[2].textContent = 'Education';
+    document.querySelectorAll('.education-item h4')[0].textContent = 'Full Stack or Front-End Web Development - Course';
+    document.querySelectorAll('.education-item p strong')[0].textContent = 'LinkedIn Learning, Online';
+    document.querySelectorAll('.education-item h4')[1].textContent = 'Computer Engineering';
+    document.querySelectorAll('.education-item p strong')[1].textContent = 'UNISABANETA, Sabaneta - February 2013 - November 2018';
+    document.querySelectorAll('.education-item h4')[2].textContent = 'Systems Technician';
+    document.querySelectorAll('.education-item p strong')[2].textContent = 'Compuedu, Envigado - January 2003 - June 2004';
+
+    document.querySelectorAll('.section-title')[3].textContent = 'Skills';
+    document.querySelectorAll('.skill-item h4')[0].textContent = 'Technical Skills';
+    document.querySelectorAll('.skill-item ul li')[0].textContent = 'PHP 5, PHP 7, MySQL, HTML, HTML5, CSS, CSS3, Bootstrap, GIT, Jquery, Laravel, YII2, Angular.js, Node.js, Wordpress';
+    document.querySelectorAll('.skill-item h4')[1].textContent = 'Soft Skills';
+    document.querySelectorAll('.skill-item ul li')[1].textContent = 'Communication, Creativity, Adaptability, Teamwork, Proactivity, Resourcefulness, Problem Solving';
+
+    document.querySelectorAll('.section-title')[4].textContent = 'Personal Information';
+    document.querySelectorAll('.personal-info-item h4')[0].textContent = 'Email';
+    document.querySelectorAll('.personal-info-item p')[0].textContent = 'andersonmares81@gmail.com';
+    document.querySelectorAll('.personal-info-item h4')[1].textContent = 'Phone';
+    document.querySelectorAll('.personal-info-item p')[1].textContent = '+57 316 826 5737';
+    document.querySelectorAll('.personal-info-item h4')[2].textContent = 'LinkedIn';
+    document.querySelectorAll('.personal-info-item p')[2].textContent = 'https://www.linkedin.com/in/anderson-martinez-restrepo/';
+
+    // Actualizar el botón de descarga para que guarde el CV traducido
+    document.querySelectorAll('.btn')[0].setAttribute('onclick', "generatePDF('en')");
+}
+
     </script>
 </body>
 </html>
