@@ -210,25 +210,14 @@
 
     <section>
         <div class="container">
-            <a href="#" class="btn" onclick="generatePDF('es')">Descargar CV en PDF</a>
+            <a href="#" class="btn" onclick="generatePlainPDF('es')">Descargar CV en Español (PDF)</a>
             <a href="#" class="btn" onclick="translateCV()">Traducir a Inglés</a>
+            <a href="#" class="btn" onclick="generatePlainPDF('en')">Descargar CV en Inglés (PDF)</a>
         </div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script>
-        function generatePDF(language) {
-            const element = document.body;
-            const opt = {
-                margin: 1,
-                filename: language === 'es' ? 'CV_Anderson_Martinez.pdf' : 'CV_Anderson_Martinez_EN.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();
-        }
-
         function translateCV() {
     // Traducción de las secciones principales del CV
     document.querySelector('header h1').textContent = 'Anderson Martinez Restrepo';
@@ -288,72 +277,73 @@
     // Actualizar el botón de descarga para que guarde el CV traducido
     document.querySelectorAll('.btn')[0].setAttribute('onclick', "generatePDF('en')");
 }
-function generatePlainPDF(language) {
-    // Remover estilos innecesarios para un diseño simple en blanco y negro
-    const element = document.body;
-    element.style.backgroundColor = '#ffffff';
-    element.style.color = '#000000';
-    element.style.fontFamily = 'Times New Roman, serif';
-    element.style.fontSize = '12pt';
-    element.style.lineHeight = '1.2';
-    element.style.margin = '0';
-    element.style.padding = '0';
-    
-    // Ajustar contenedores
-    document.querySelector('.container').style.width = '100%';
-    document.querySelector('.container').style.maxWidth = 'none';
-    document.querySelectorAll('section').forEach(section => {
-        section.style.padding = '10px 0';
-        section.style.borderBottom = 'none';
-    });
-    
-    // Ocultar elementos no esenciales
-    document.querySelectorAll('.btn').forEach(btn => btn.style.display = 'none');
-    
-    // Aplicar estilos minimalistas
-    document.querySelector('header').style.backgroundColor = '#ffffff';
-    document.querySelector('header').style.color = '#000000';
-    document.querySelector('header').style.borderBottom = '1px solid #000000';
-    
-    document.querySelector('header h1').style.fontSize = '16pt';
-    document.querySelector('header h1').style.marginBottom = '5px';
-    document.querySelector('header h2').style.fontSize = '12pt';
-    document.querySelector('header h2').style.fontWeight = 'normal';
-    
-    document.querySelectorAll('.section-title').forEach(title => {
-        title.style.fontSize = '14pt';
-        title.style.color = '#000000';
-        title.style.marginBottom = '5px';
-    });
-    
-    document.querySelectorAll('.experience-item, .education-item, .skill-item, .personal-info-item').forEach(item => {
-        item.style.flex = '1 1 100%';
-        item.style.marginBottom = '10px';
-    });
-    
-    document.querySelectorAll('ul').forEach(ul => {
-        ul.style.marginLeft = '20px';
-        ul.style.paddingLeft = '0';
-    });
-    
-    document.querySelectorAll('p').forEach(p => {
-        p.style.marginBottom = '5px';
-    });
 
-    // Configuración de la conversión a PDF
-    const opt = {
-        margin: 0.5,
-        filename: language === 'es' ? 'CV_Anderson_Martinez_Simple.pdf' : 'CV_Anderson_Martinez_Simple_EN.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 1 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
-        pagebreak: { mode: ['avoid-all'] }
-    };
 
-    // Generar y descargar el PDF
-    html2pdf().set(opt).from(element).save();
-}
+        function generatePlainPDF(language) {
+            // Remover estilos innecesarios para un diseño simple en blanco y negro
+            const element = document.body;
+            element.style.backgroundColor = '#ffffff';
+            element.style.color = '#000000';
+            element.style.fontFamily = 'Times New Roman, serif';
+            element.style.fontSize = '12pt';
+            element.style.lineHeight = '1.2';
+            element.style.margin = '0';
+            element.style.padding = '0';
+            
+            // Ajustar contenedores
+            document.querySelector('.container').style.width = '100%';
+            document.querySelector('.container').style.maxWidth = 'none';
+            document.querySelectorAll('section').forEach(section => {
+                section.style.padding = '10px 0';
+                section.style.borderBottom = 'none';
+            });
+            
+            // Ocultar elementos no esenciales
+            document.querySelectorAll('.btn').forEach(btn => btn.style.display = 'none');
+            
+            // Aplicar estilos minimalistas
+            document.querySelector('header').style.backgroundColor = '#ffffff';
+            document.querySelector('header').style.color = '#000000';
+            document.querySelector('header').style.borderBottom = '1px solid #000000';
+            
+            document.querySelector('header h1').style.fontSize = '16pt';
+            document.querySelector('header h1').style.marginBottom = '5px';
+            document.querySelector('header h2').style.fontSize = '12pt';
+            document.querySelector('header h2').style.fontWeight = 'normal';
+            
+            document.querySelectorAll('.section-title').forEach(title => {
+                title.style.fontSize = '14pt';
+                title.style.color = '#000000';
+                title.style.marginBottom = '5px';
+            });
+            
+            document.querySelectorAll('.experience-item, .education-item, .skill-item, .personal-info-item').forEach(item => {
+                item.style.flex = '1 1 100%';
+                item.style.marginBottom = '10px';
+            });
+            
+            document.querySelectorAll('ul').forEach(ul => {
+                ul.style.marginLeft = '20px';
+                ul.style.paddingLeft = '0';
+            });
+            
+            document.querySelectorAll('p').forEach(p => {
+                p.style.marginBottom = '5px';
+            });
 
+            // Configuración de la conversión a PDF
+            const opt = {
+                margin: 0.5,
+                filename: language === 'es' ? 'CV_Anderson_Martinez_Simple.pdf' : 'CV_Anderson_Martinez_Simple_EN.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 1 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all'] }
+            };
+
+            // Generar y descargar el PDF
+            html2pdf().set(opt).from(element).save();
+        }
     </script>
 </body>
 </html>
